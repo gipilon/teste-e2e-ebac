@@ -1,6 +1,8 @@
 /// <reference types="cypress" />
 
-import nomeFuncionliadaPage from "../support/page_objects/nome-funcionliada.page";
+import loginPage from "../support/page_objects/loginPage";
+import produtosPage from "../support/page_objects/produtosPage";
+import checkoutPage from "../support/page_objects/checkoutPage";
 
 context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
   /*  Como cliente 
@@ -18,18 +20,18 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
   it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
     //entra na área de usuário
     cy.get('.icon-user-unfollow').click()
-    nomeFuncionliadaPage.fazLogin('giovanna.teste@teste.com', 'teste123')
+    loginPage.fazLogin('giovanna.teste@teste.com', 'teste123')
     
     //seleciona produto
     cy.get('.woocommerce-form > .button').click()
     let produto = 'Aether Gym Pant'
-    nomeFuncionliadaPage.buscarProduto(produto)
+    produtosPage.buscarProduto(produto)
     
-    nomeFuncionliadaPage.adicionarProdutoAoCarrinho()
-    nomeFuncionliadaPage.acessaCarrinho()
+    produtosPage.adicionarProdutoAoCarrinho()
+    produtosPage.acessaCarrinho()
 
     //preenche checkout
-    nomeFuncionliadaPage.preencherCheckout()
+    checkoutPage.preencherCheckout()
   });
 
 

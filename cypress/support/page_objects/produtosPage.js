@@ -1,16 +1,12 @@
-class NomeClasse {
+class produtosPage {
 
-    fazLogin(email, senha){
-        cy.get('#username').type(email)
-        cy.get('#password').type(senha)
-    }
-
-    buscarProduto(produto){
+    buscarProduto(){
         cy.get('#primary-menu > .menu-item-629 > a').click()
+        cy.get('.post-3073 > .product-block > .caption > .meta > .infor > .name').click()
         cy.get('.post-3073 > .product-block > .block-inner > .image > .product-image > .image-hover').click()
     }
 
-    adicionarProdutoAoCarrinho(produto){
+    adicionarProdutoAoCarrinho(){
         cy.get('.button-variable-item-33').click()
         cy.get('.button-variable-item-Brown').click()
         cy.get('.input-text').clear().type(4)
@@ -23,16 +19,6 @@ class NomeClasse {
         cy.get('.checkout-button').click()
     }
 
-    preencherCheckout(){
-        cy.get('#billing_address_1').type('Rua teste')
-        cy.get('#billing_city').type('São Paulo')
-        cy.get('#billing_postcode').type('04567-000')
-        cy.get('#billing_phone').type('92763-2783')
-        cy.get('#terms').click()
-        cy.get('#place_order').click()
-        cy.get('.woocommerce-notice').should('contain', 'Obrigado. Seu pedido foi recebido.')
-    }
-
 }
 
-export default new NomeClasse()
+export default new produtosPage()
