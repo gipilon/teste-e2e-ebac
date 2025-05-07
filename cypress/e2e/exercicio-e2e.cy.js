@@ -31,7 +31,12 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     produtosPage.acessaCarrinho()
 
     //preenche checkout
-    checkoutPage.preencherCheckout()
+    checkoutPage.preencherCheckout(
+      'Rua dos Testes',
+      'São Paulo',
+      '12345678',
+      '11999999999'
+    )
   });
 
 
